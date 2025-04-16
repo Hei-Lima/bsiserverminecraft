@@ -1,0 +1,23 @@
+services:
+  mc:
+    image: itzg/minecraft-server:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+      - "19132:19132/udp"
+    environment:
+      EULA: "TRUE"
+      VERSION: "LATEST"
+      MOTD: "Bem-Vindos ao server Ifes Serra!"
+      ICON: "https://i.ibb.co/S2fVgq2/New-Project.png"
+      OVERRIDE_ICON: "true"
+      ONLINE_MODE: "false"
+      USE_AIKAR_FLAGS: "true"
+      TZ: "America/Sao_Paulo"
+      TYPE: "PAPER" 
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    volumes:
+      - "./data:/data"
